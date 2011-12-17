@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="module" version="1.5.0">
+	<name>CiviCRM Events Module</name>
+	<creationDate>Oct 2011</creationDate>
+	<author>Artd Webdesign GmbH</author>
+	<authorEmail>lu@artd.ch</authorEmail>
+	<authorUrl>http://www.artd.ch</authorUrl>
+	<copyright>Copyright (C) Artd Webdesign GmbH. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<version>1.0.1</version>
+	<description>MOD_CIVICRM_EVENTS_XML_DESC</description>
+	<files>
+		<folder>elements</folder>
+		<folder>fields</folder>
+		<folder>tmpl</folder>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<filename module="mod_civicrm_events">mod_civicrm_events.php</filename>
+		<filename>mod_civicrm_events.xml</filename>
+	</files>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.mod_civicrm_events.ini</language>
+		<language tag="en-GB">en-GB/en-GB.mod_civicrm_events.sys.ini</language>
+	</languages>
+	<params addpath="/modules/mod_civicrm_events/elements">
+		<param name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="PARAMMODULECLASSSUFFIX" />
+		<param type="spacer" />
+		<param name="mode" type="radio" default="0" 
+			label="MOD_CIVICRM_EVENTS_FIELD_MODE_LABEL" 
+			description="MOD_CIVICRM_EVENTS_FIELD_MODE_DESC"
+		>
+			<option value="0">MOD_CIVICRM_EVENTS_MODE_DEFAULT_OPT</option>
+			<option value="1">MOD_CIVICRM_EVENTS_MODE_TYPE_OPT</option>
+			<option value="2">MOD_CIVICRM_EVENTS_MODE_EVENT_OPT</option>
+		</param>
+		<param name="type_ids" type="eventtypelist"  multiple="true" default=""
+			label="MOD_CIVICRM_EVENTS_FIELD_EVENT_TYPES_LABEL"
+			description="MOD_CIVICRM_EVENTS_FIELD_EVENT_TYPES_DESC" />
+		<param name="event_ids" type="eventlist" multiple="true" default=""
+			label="MOD_CIVICRM_EVENTS_FIELD_EVENTS_LABEL"
+			description="MOD_CIVICRM_EVENTS_FIELD_EVENTS_DESC" />
+		<param type="spacer" />
+		<param name="hide_past" type="radio" default="1" 
+			label="MOD_CIVICRM_EVENTS_FIELD_HIDE_PAST_LABEL" 
+			description="MOD_CIVICRM_EVENTS_FIELD_HIDE_PAST_DESC"
+		>
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="hide_inactive" type="radio" default="1" 
+			label="MOD_CIVICRM_EVENTS_FIELD_HIDE_INACTIVE_LABEL" 
+			description="MOD_CIVICRM_EVENTS_FIELD_HIDE_INACTIVE_DESC"
+		>
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="privacy" type="radio" default="" 
+			label="MOD_CIVICRM_EVENTS_FIELD_PRIVACY_LABEL" 
+			description="MOD_CIVICRM_EVENTS_FIELD_PRIVACY_DESC"
+		>
+			<option value="">MOD_CIVICRM_EVENTS_PRIVACY_BOTH_OPT</option>
+			<option value="1">MOD_CIVICRM_EVENTS_PRIVACY_PUBLIC_OPT</option>
+			<option value="0">MOD_CIVICRM_EVENTS_PRIVACY_PRIVATE_OPT</option>
+		</param>
+		<param type="spacer" />
+		<param name="order_by" type="list" default="id" 
+			label="MOD_CIVICRM_EVENTS_FIELD_ORDER_BY_LABEL" 
+			description="MOD_CIVICRM_EVENTS_FIELD_ORDER_BY_DESC"
+		>
+			<option value="id">MOD_CIVICRM_EVENTS_ORDER_BY_ID_OPT</option>
+			<option value="title">MOD_CIVICRM_EVENTS_ORDER_BY_TITLE_OPT</option>
+			<option value="start_date">MOD_CIVICRM_EVENTS_ORDER_BY_START_DATE_OPT</option>
+			<option value="end_date">MOD_CIVICRM_EVENTS_ORDER_BY_END_DATE_OPT</option>
+		</param>
+		<param name="order_dir" type="radio" default="ASC" 
+			label="MOD_CIVICRM_EVENTS_FIELD_ORDER_DIR_LABEL" 
+			description="MOD_CIVICRM_EVENTS_FIELD_ORDER_DIR_DESC">
+			<option value="ASC">MOD_CIVICRM_EVENTS_ORDER_DIR_ASC_OPT</option>
+			<option value="DESC">MOD_CIVICRM_EVENTS_ORDER_DIR_DESC_OPT</option>
+		</param>
+		<param type="spacer" />
+		<param name="layout" type="filelist" 
+			label="MOD_CIVICRM_EVENTS_FIELD_LAYOUT_LABEL"
+			description="MOD_CIVICRM_EVENTS_FIELD_LAYOUT_DESC"
+			directory="/modules/mod_civicrm_events/tmpl"
+			default="default" hide_default="1" hide_none="1"
+			stripext="1" filter="\.php$" exclude="^_" />
+		<param name="link" type="list" default="info" 
+			label="MOD_CIVICRM_EVENTS_FIELD_LINK_LABEL" 
+			description="MOD_CIVICRM_EVENTS_FIELD_LINK_DESC"
+		>
+			<option value="info">MOD_CIVICRM_EVENTS_LINK_INFO_PAGE_OPT</option>
+			<option value="reg">MOD_CIVICRM_EVENTS_LINK_REG_PAGE_OPT</option>
+		</param>
+		<param name="modal" type="radio" default="0"
+			label="MOD_CIVICRM_EVENTS_FIELD_MODAL_LABEL"
+			description="MOD_CIVICRM_EVENTS_FIELD_MODAL_DESC"
+		>
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="limit" type="text" default="5" 
+			label="MOD_CIVICRM_EVENTS_FIELD_NUM_OF_EVENTS_LABEL" 
+			description="MOD_CIVICRM_EVENTS_FIELD_NUM_OF_EVENTS_DESC" />
+		<param name="show_date" type="radio" default="1" 
+			label="MOD_CIVICRM_EVENTS_FIELD_SHOW_DATE_LABEL" 
+			description="MOD_CIVICRM_EVENTS_FIELD_SHOW_DATE_DESC"
+		>
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="show_type" type="radio" default="1" 
+			label="MOD_CIVICRM_EVENTS_FIELD_SHOW_TYPE_LABEL"
+			description="MOD_CIVICRM_EVENTS_FIELD_SHOW_TYPE_DESC"
+		>
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="readmore" type="radio" default="1" 
+			label="MOD_CIVICRM_EVENTS_FIELD_READMORE_LINK_LABEL" 
+			description="MOD_CIVICRM_EVENTS_FIELD_READMORE_LINK_DESC"
+		>
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="readmore_text" type="text" default="Read More..." 
+			label="MOD_CIVICRM_EVENTS_FIELD_READMORE_TEXT_LABEL" 
+			description="MOD_CIVICRM_EVENTS_FIELD_READMORE_TEXT_DESC" />
+		<param name="show_summary" type="radio" default="1" 
+			label="MOD_CIVICRM_EVENTS_FIELD_SHOW_SUMMARY_LABEL" 
+			description="MOD_CIVICRM_EVENTS_FIELD_SHOW_SUMMARY_DESC"
+		>
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="summary_limit" type="text" default="100" 
+			label="MOD_CIVICRM_EVENTS_FIELD_SUMMARY_LIMIT_LABEL" 
+			description="MOD_CIVICRM_EVENTS_FIELD_SUMMARY_LIMIT_DESC" />
+	</params>
+	<config>
+		<fields name="params">
+			<fieldset name="basic" addfieldpath="/modules/mod_civicrm_events/fields">
+				<field name="moduleclass_sfx" type="text" default="" 
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" 
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field type="spacer" />
+				<field name="mode" type="radio" default="0" 
+					label="MOD_CIVICRM_EVENTS_FIELD_MODE_LABEL" 
+					description="MOD_CIVICRM_EVENTS_FIELD_MODE_DESC"
+				>
+					<option value="0">MOD_CIVICRM_EVENTS_MODE_DEFAULT_OPT</option>
+					<option value="1">MOD_CIVICRM_EVENTS_MODE_TYPE_OPT</option>
+					<option value="2">MOD_CIVICRM_EVENTS_MODE_EVENT_OPT</option>
+				</field>
+				<field name="type_ids" type="eventtypelist"  multiple="true" default=""
+					label="MOD_CIVICRM_EVENTS_FIELD_EVENT_TYPES_LABEL"
+					description="MOD_CIVICRM_EVENTS_FIELD_EVENT_TYPES_DESC" />
+				<field name="event_ids" type="eventlist" multiple="true" default=""
+					label="MOD_CIVICRM_EVENTS_FIELD_EVENTS_LABEL"
+					description="MOD_CIVICRM_EVENTS_FIELD_EVENTS_DESC" />
+				<field type="spacer" />
+				<field name="hide_past" type="radio" default="1" 
+					label="MOD_CIVICRM_EVENTS_FIELD_HIDE_PAST_LABEL" 
+					description="MOD_CIVICRM_EVENTS_FIELD_HIDE_PAST_DESC"
+				>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="hide_inactive" type="radio" default="1" 
+					label="MOD_CIVICRM_EVENTS_FIELD_HIDE_INACTIVE_LABEL" 
+					description="MOD_CIVICRM_EVENTS_FIELD_HIDE_INACTIVE_DESC"
+				>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="privacy" type="radio" default="" 
+					label="MOD_CIVICRM_EVENTS_FIELD_PRIVACY_LABEL" 
+					description="MOD_CIVICRM_EVENTS_FIELD_PRIVACY_DESC"
+				>
+					<option value="">MOD_CIVICRM_EVENTS_PRIVACY_BOTH_OPT</option>
+					<option value="1">MOD_CIVICRM_EVENTS_PRIVACY_PUBLIC_OPT</option>
+					<option value="0">MOD_CIVICRM_EVENTS_PRIVACY_PRIVATE_OPT</option>
+				</field>
+				<field type="spacer" />
+				<field name="order_by" type="list" default="id" 
+					label="MOD_CIVICRM_EVENTS_FIELD_ORDER_BY_LABEL" 
+					description="MOD_CIVICRM_EVENTS_FIELD_ORDER_BY_DESC"
+				>
+					<option value="id">MOD_CIVICRM_EVENTS_ORDER_BY_ID_OPT</option>
+					<option value="title">MOD_CIVICRM_EVENTS_ORDER_BY_TITLE_OPT</option>
+					<option value="start_date">MOD_CIVICRM_EVENTS_ORDER_BY_START_DATE_OPT</option>
+					<option value="end_date">MOD_CIVICRM_EVENTS_ORDER_BY_END_DATE_OPT</option>
+				</field>
+				<field name="order_dir" type="radio" default="ASC" 
+					label="MOD_CIVICRM_EVENTS_FIELD_ORDER_DIR_LABEL" 
+					description="MOD_CIVICRM_EVENTS_FIELD_ORDER_DIR_DESC">
+					<option value="ASC">MOD_CIVICRM_EVENTS_ORDER_DIR_ASC_OPT</option>
+					<option value="DESC">MOD_CIVICRM_EVENTS_ORDER_DIR_DESC_OPT</option>
+				</field>
+				<field type="spacer" />
+				<field name="layout" type="filelist" 
+					label="MOD_CIVICRM_EVENTS_FIELD_LAYOUT_LABEL"
+					description="MOD_CIVICRM_EVENTS_FIELD_LAYOUT_DESC"
+					directory="/modules/mod_civicrm_events/tmpl"
+					default="default" hide_default="1" hide_none="1"
+					stripext="1" filter="\.php$" exclude="^_" />
+				<field name="link" type="list" default="info" 
+					label="MOD_CIVICRM_EVENTS_FIELD_LINK_LABEL" 
+					description="MOD_CIVICRM_EVENTS_FIELD_LINK_DESC"
+				>
+					<option value="info">MOD_CIVICRM_EVENTS_LINK_INFO_PAGE_OPT</option>
+					<option value="reg">MOD_CIVICRM_EVENTS_LINK_REG_PAGE_OPT</option>
+				</field>
+				<field name="modal" type="radio" default="0"
+					label="MOD_CIVICRM_EVENTS_FIELD_MODAL_LABEL"
+					description="MOD_CIVICRM_EVENTS_FIELD_MODAL_DESC"
+				>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="limit" type="text" default="5" 
+					label="MOD_CIVICRM_EVENTS_FIELD_NUM_OF_EVENTS_LABEL" 
+					description="MOD_CIVICRM_EVENTS_FIELD_NUM_OF_EVENTS_DESC" />
+				<field name="show_date" type="radio" default="1" 
+					label="MOD_CIVICRM_EVENTS_FIELD_SHOW_DATE_LABEL" 
+					description="MOD_CIVICRM_EVENTS_FIELD_SHOW_DATE_DESC"
+				>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="show_type" type="radio" default="1" 
+					label="MOD_CIVICRM_EVENTS_FIELD_SHOW_TYPE_LABEL"
+					description="MOD_CIVICRM_EVENTS_FIELD_SHOW_TYPE_DESC"
+				>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="readmore" type="radio" default="1" 
+					label="MOD_CIVICRM_EVENTS_FIELD_READMORE_LINK_LABEL" 
+					description="MOD_CIVICRM_EVENTS_FIELD_READMORE_LINK_DESC"
+				>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="readmore_text" type="text" default="Read More..." 
+					label="MOD_CIVICRM_EVENTS_FIELD_READMORE_TEXT_LABEL" 
+					description="MOD_CIVICRM_EVENTS_FIELD_READMORE_TEXT_DESC" />
+				<field name="show_summary" type="radio" default="1" 
+					label="MOD_CIVICRM_EVENTS_FIELD_SHOW_SUMMARY_LABEL" 
+					description="MOD_CIVICRM_EVENTS_FIELD_SHOW_SUMMARY_DESC"
+				>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="summary_limit" type="text" default="100" 
+					label="MOD_CIVICRM_EVENTS_FIELD_SUMMARY_LIMIT_LABEL" 
+					description="MOD_CIVICRM_EVENTS_FIELD_SUMMARY_LIMIT_DESC" />
+			</fieldset>
+		</fields>
+	</config>
+</install>
